@@ -18,9 +18,26 @@ public class UsuarioService {
         return (ArrayList<UsuarioModel>) usuarioRepository.findAll();
     }
 
-    public UsuarioModel guardarUsuario(UsuarioModel usuario){
+    public UsuarioModel guardarUsuario(UsuarioModel usuario){ //Actualiza usuario
         return usuarioRepository.save(usuario);
     }
 
+    public Optional<UsuarioModel> obtenerPorId(Long id){
+        return usuarioRepository.findById(id);
+    }
+
+
+    public ArrayList<UsuarioModel>  obtenerPorPrioridad(Integer prioridad) {
+        return usuarioRepository.findByPrioridad(prioridad);
+    }
+
+    public boolean eliminarUsuario(Long id) {
+        try{
+            usuarioRepository.deleteById(id);
+            return true;
+        }catch(Exception err){
+            return false;
+        }
+    }
 
 }

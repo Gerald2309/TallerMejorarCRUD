@@ -30,5 +30,25 @@ public class UsuarioController {
         return this.usuarioService.guardarUsuario(usuario);
     }
 
+    @GetMapping( path = "/{id}") //Petición http
+    public Optional<UsuarioModel> obtenerUsuarioPorId(@PathVariable("id") Long id) {
+        return this.usuarioService.obtenerPorId(id);
+    }
+
+    @GetMapping("/query") //para buscar por prioridad
+    public ArrayList<UsuarioModel> obtenerUsuarioPorPrioridad(@RequestParam("prioridad") Integer prioridad){
+        return this.usuarioService.obtenerPorPrioridad(prioridad);
+    }
+
+    @DeleteMapping( path = "/{id}")
+    public String eliminarPorId(@PathVariable("id") Long id){
+        boolean ok = this.usuarioService.eliminarUsuario(id);
+        if (ok){
+            return "Se eliminó el usuario con id " + id;
+        }else{
+            return "No pudo eliminar el usuario con id" + id;
+        }
+    }
+
 
 }
