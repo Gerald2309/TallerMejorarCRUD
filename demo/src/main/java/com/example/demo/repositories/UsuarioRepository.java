@@ -11,4 +11,5 @@ import org.springframework.stereotype.Repository;
 public interface UsuarioRepository extends CrudRepository<UsuarioModel, Long> { /*CrudRepository
     Es la clase que implementa los métodos findAll, save, y otros de la base de datos    */
     public abstract ArrayList<UsuarioModel> findByPrioridad(Integer prioridad);
+    public abstract ArrayList<UsuarioModel> findByEstratoSocial(Integer estratoSocial);
 }

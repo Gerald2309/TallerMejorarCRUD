@@ -40,6 +40,11 @@ public class UsuarioController {
         return this.usuarioService.obtenerPorPrioridad(prioridad);
     }
 
+    @GetMapping("/query2") //para buscar por estrato social
+    public ArrayList<UsuarioModel> obtenerUsuarioPorEstratoSocial(@RequestParam("estratoSocial") Integer estratoSocial){
+        return this.usuarioService.obtenerPorEstratoSocial(estratoSocial);
+    }
+
     @DeleteMapping( path = "/{id}")
     public String eliminarPorId(@PathVariable("id") Long id){
         boolean ok = this.usuarioService.eliminarUsuario(id);

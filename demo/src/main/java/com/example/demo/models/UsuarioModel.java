@@ -10,12 +10,13 @@ public class UsuarioModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //se genera y aumenta automáticamente
     @Column(unique = true, nullable = false) //NOT NULL
     private Long id;
-
     private String nombre;
     private String email;
     private Integer prioridad;
+    private Integer estratoSocial;
 
-    public void setPrioridad(Integer prioridad){
+
+   public void setPrioridad(Integer prioridad){
         this.prioridad = prioridad;
     }
 
@@ -47,4 +48,11 @@ public class UsuarioModel {
         this.email = email;
     }
 
+    public Integer getEstratoSocial() {
+        return estratoSocial;
+    }
+
+    public void setEstratoSocial(Integer estratoSocial) {
+        this.estratoSocial = estratoSocial;
+    }
 }
